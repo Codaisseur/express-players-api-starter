@@ -1,10 +1,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const db = require('./models')
 
-const app = express()
-app.use(bodyParser.json())
 const port = process.env.PORT || 3030
+
+const app = express()
+  .use(cors())
+  .use(bodyParser.json())
 
 const { Player } = db
 
